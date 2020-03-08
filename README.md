@@ -130,6 +130,7 @@ enable(mySwitch, 2)
 ```json
 Out[1]:Second case, where you put the integer two.
 ```
+# Creating a Finite State Machine using Switches
 So that's the gist of it all. Now, let's briefly talk about making a finite state machine with this. A finite state machine, is very different from a pure switch, in that it repeats, and that the value of the reference, may change.
 Here is an example:
 ```py
