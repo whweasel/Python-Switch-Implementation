@@ -1,8 +1,11 @@
 class NotMatchedError(Exception):
+    """Raised if the reference value does not match the case condition, used in a switch"""
     pass
 class Matched(Exception):
+    """Raised if the reference value DOES match the condition of a case, in a switch. (= """
     pass
 class _Case(object):
+    """Helper decorator"""
     def __init__(self, function, case=None):
         self.function = function
         self.case = case
@@ -35,7 +38,7 @@ def _() -> None:
     """This function is used to set the @case decorator"""
     return None
 def copyEnable(switch, ref):
-    """DON'T USE THIS"""
+    """A copy of the enable method, used to call the default fallback case method in a switch."""
     for thing in switch.__dict__:
         #print("{}  :  {}".format(thing, switch.__dict__[thing]))
         if isinstance(switch.__dict__[thing], _Case):
