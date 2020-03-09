@@ -16,4 +16,4 @@ class mySwitch:
     def __default__(ctx):
         print("Default case.")
         return ctx
-enable(mySwitch, 6)
+enable(mySwitch, 2)

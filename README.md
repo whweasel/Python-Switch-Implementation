@@ -96,7 +96,7 @@ It is also a convention to name the function ``__default__``, for the same reaso
 
 And now, we've reached the end. As you know, states, in Python, using this implementation, are actually classes. Therefore, they cannot be executed on their own. What is nice about Python, is that there is a function that does that for us. Remember that ``enable`` that was imported? We're gonna use that.
 ```py
-enable(mySwitch, 2)
+enable(mySwitch, "fdk")
 ```
 The first argument shall be the switch itself, aka the class, and the second argument is the value to be compared to by the switch.
 
