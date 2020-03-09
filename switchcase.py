@@ -17,21 +17,23 @@ class _Case(object):
             raise Matched(ref1)
         else:
             raise NotMatchedError(ref)
-def case(function=None, **kwargs):
-    """ 
-    Decorator, used to indicate a case inside a switch.
-  
-    The user may pass any keyword argument in, as the reference value, but it cannot be a positional one.
-  
-    Parameters: 
-        ?: The value, used to compare with the reference.    
-    """
-    if function:
-        return _Case(function)
-    else:
-        def wrapper(function):
-            return _Case(function, list(kwargs.values())[0])
-        return wrapper
+def case(the_case):
+    def casee(function=None):
+        """ 
+        Decorator, used to indicate a case inside a switch.
+    
+        The user may pass any keyword argument in, as the reference value, but it cannot be a positional one.
+    
+        Parameters: 
+            ?: The value, used to compare with the reference.    
+        """
+        if function:
+            return _Case(function, the_case)
+        else:
+            def wrapper(function):
+                return _Case(function, the_case)
+            return wrapper
+    return casee
 
 @case
 def _() -> None:
@@ -71,7 +73,3 @@ def enable(switch: type, ref: any) -> object:
             except Matched:
                 return Matched.msg
     copyEnable(switch, ref="__default__")
-
-    
-
-    
